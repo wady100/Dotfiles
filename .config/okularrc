@@ -1,0 +1,23 @@
+[Desktop Entry]
+FullScreen=false
+
+[MainWindow]
+Height 768=741
+State=AAAA/wAAAAD9AAAAAAAABVIAAAKUAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgEAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 1366=1366
+Window-Maximized 768x1366=true
+
+[Recent Files]
+File1[$e]=$HOME/deeplearningbook.pdf
+File2[$e]=$HOME/Desktop/Semester 7/DSP/3Filter Design by Impulse Invariance.pdf
+File3[$e]=$HOME/Desktop/Semester 7/DSP/1Sampling and Reconstruction of a Bandlimited Signal.pdf
+File4[$e]=$HOME/Desktop/Semester 7/DSP/2Changing  the Sampling Rate.pdf
+File5[$e]=$HOME/Desktop/Semester 7/Comp Arch/Computer Architecture - A Quantitative Approach (Fifth Edition).pdf
+File6[$e]=$HOME/Desktop/Semester 7/Deep Learning/deeplearningbook.pdf
+Name1[$e]=deeplearningbook.pdf
+Name2[$e]=3Filter Design by Impulse Invariance.pdf
+Name3[$e]=1Sampling and Reconstruction of a Bandlimited Signal.pdf
+Name4[$e]=2Changing  the Sampling Rate.pdf
+Name5[$e]=Computer Architecture - A Quantitative Approach (Fifth Edition).pdf
+Name6[$e]=deeplearningbook.pdf

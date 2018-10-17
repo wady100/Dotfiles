@@ -1,0 +1,11 @@
+[Added Associations]
+text/markdown=atom_atom.desktop;
+video/mp4=vlc.desktop;
+video/x-matroska=org.gnome.Totem.desktop;vlc.desktop;
+application/pdf=okularApplication_pdf.desktop;
+video/x-msvideo=vlc.desktop;
+
+[Default Applications]
+video/mp4=vlc.desktop
+video/x-matroska=vlc.desktop
+video/x-msvideo=vlc.desktop
