@@ -217,6 +217,7 @@ exec_always --no-startup-id xrandr --output HDMI-0 --off --output DVI-I-1 --off 
 
 # Compton
 exec --no-startup-id "sh -c 'sleep 1; compton --config ~/.config/i3/compton.conf'" 
-
+bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/'
+bindsym Control+Print exec gnome-screenshot -i
 #network manager 
 exec --no-startup-id nm-applet
