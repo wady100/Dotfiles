@@ -3,8 +3,8 @@ A simple backup taken using [YADM](https://thelocehiliosan.github.io/yadm/docs/g
 
 List of basic commands used : 
 
-'''
+```
 sudo yadm add .vim/
 sudo yadm commit -m ""
 sudo yadm push origin master -f
-''' 
+``` 
