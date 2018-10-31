@@ -1,0 +1,1 @@
+/home/siybul/.vim/vimrc
