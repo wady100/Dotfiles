@@ -12,10 +12,9 @@ ZSH_THEME="agnoster"
 # On entry do the following::::
 
 neofetch --gtk2 off --gtk3 off --color_blocks off
-tmux
-
-# Entry is done
-
+# Entry is done`
+tmux new-session -A -s "$USER"
+unset TMUX 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
