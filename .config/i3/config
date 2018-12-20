@@ -222,3 +222,5 @@ bindsym Print exec scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures
 bindsym Control+Print exec gnome-screenshot -i
 #network manager 
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id gsimplecal
