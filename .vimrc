@@ -20,7 +20,6 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlp.vim'
@@ -28,6 +27,10 @@ Plugin 'linediff.vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'dracula/vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'mhinz/vim-startify'
+Plugin 'joshdick/onedark.vim'
 call vundle#end()
 " }}}
 " Main options {{{
@@ -41,9 +44,11 @@ syntax on
 "set t_Co=256
 "let g:solarized_termcolors=256
 "let g:solarized_diffmode="high"
-"set background=dark
+set background=dark
 "color dracula
-"set term=screen-256color
+color onedark
+set term=screen-256color
+" set termguicolors
 "## More options
 set ruler
 set incsearch
@@ -60,7 +65,6 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
-nnoremap <leader><space> :noh<cr>
 match Error /{{{\|}}}/
 " }}}
 set clipboard=unnamedplus
@@ -153,6 +157,12 @@ nnoremap <silent> <leader>a :copen<CR>
 nnoremap <silent> <leader>A :cclose<CR>
 nnoremap <silent> <leader>d :Gdiff<CR>
 nnoremap <silent> <leader>/ :nohlsearch<CR>
+nnoremap <leader><space> :noh<cr>
+nnoremap <leader>r :%s/\<<C-r><C-w>\>//gc<left><left> 
+"Put the cursor on the word u want to change and hit leader+r followed by the
+"string u want to replace with. 
+"https://vi.stackexchange.com/questions/13689/how-to-find-and-replace-in-vim-without-having-to-type-the-original-word
+
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 
@@ -202,4 +212,11 @@ set updatetime=250
 let g:gist_detect_filetype = 1
 let g:gist_post_private = 1
 let g:gist_post_anonymous = 0
+" }}}
+" Vim-Startify {{{
+let g:startify_session_dir = 'session'
+" session is a dir in ~/ which saves all the sessions. change name accordingly
+let g:startify_bookmarks = [] 
+" [ { '~/.zshrc' , 'whatever'} ]
+let g:startify_session_autoload = 0
 " }}}
