@@ -106,4 +106,4 @@ source $ZSH/oh-my-zsh.sh
 #
 # Aliase
 alias tquit="tmux kill-session -a"
-source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${ZDOTDIR:-$HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
