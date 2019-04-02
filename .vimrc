@@ -1,6 +1,6 @@
 
 " vim : foldmethod=marker :
-" AUTHOR: Vicente Adolfo Bolea Sanchez
+" AUTHOR: Eashan Wadhwa
 " Dependencies:
 "  - It requires to have the following env variables:
 "    1. $CLANG_COMPLETE_LIB
@@ -19,7 +19,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-endwise'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'ctrlp.vim'
@@ -27,10 +26,8 @@ Plugin 'linediff.vim'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
 Plugin 'dracula/vim'
-Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mhinz/vim-startify'
-Plugin 'joshdick/onedark.vim'
 call vundle#end()
 " }}}
 " Main options {{{
@@ -44,11 +41,9 @@ syntax on
 "set t_Co=256
 "let g:solarized_termcolors=256
 "let g:solarized_diffmode="high"
-set background=dark
+"set background=dark
 "color dracula
-color onedark
 set term=screen-256color
-" set termguicolors
 "## More options
 set ruler
 set incsearch
@@ -189,12 +184,6 @@ let g:NERDTreeHighlightCursorline = 1
 let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeDirArrows = 0
 " }}}
-" Tagbar "{{{
-" ---------------------------------------------------------------------
-let g:tagbar_compact = 1
-let g:tagbar_width = 30
-"
-"}}}
 "SuperTab | utisnipts {{{
 let g:UltiSnipsExpandTrigger        = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger   = "<c-j>"
