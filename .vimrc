@@ -28,6 +28,8 @@ Plugin 'mattn/gist-vim'
 Plugin 'dracula/vim'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'mhinz/vim-startify'
+Plugin 'szw/vim-tags'
+Plugin 'majutsushi/tagbar'
 call vundle#end()
 " }}}
 " Main options {{{
@@ -142,6 +144,7 @@ map <silent> <F2> :tabprevious<Enter>
 map <silent> <F3> :tabnext<Enter>
 map <silent> <F4> :tabnew<Enter>
 map <silent> <F9> :NERDTreeToggle<Enter>
+map <silent> <F8> :TagbarToggle<Enter>
 
 "Customized shortcuts
 nnoremap <silent> <leader>q :q<cr>
@@ -157,7 +160,10 @@ nnoremap <leader>r :%s/\<<C-r><C-w>\>//gc<left><left>
 "Put the cursor on the word u want to change and hit leader+r followed by the
 "string u want to replace with. 
 "https://vi.stackexchange.com/questions/13689/how-to-find-and-replace-in-vim-without-having-to-type-the-original-word
-
+nnoremap <leader>. :CtrlPTag<CR>
+" Ctrl + t for going up tag stack 
+nnoremap <leader>[ :tp<CR>
+nnoremap <leader>] :tn<CR>
 
 "Great map which saves the file in sudo mode, something like `sudo !!`
 cnoremap w!! w !sudo tee >/dev/null % 
