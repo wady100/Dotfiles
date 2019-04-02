@@ -215,3 +215,6 @@ let g:startify_bookmarks = []
 " [ { '~/.zshrc' , 'whatever'} ]
 let g:startify_session_autoload = 0
 " }}}
+" CTags {{{
+set tags+=./.tags
+" }}}

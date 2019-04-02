@@ -106,4 +106,5 @@ source $ZSH/oh-my-zsh.sh
 #
 # Aliase
 alias tquit="tmux kill-session -a"
+alias tagen="ctag -R -f ./.tags ."
 source ${ZDOTDIR:-$HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
