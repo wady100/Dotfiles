@@ -197,7 +197,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec bash /etc/init.d/brightness.sh +5  # increase screen brightness
 bindsym XF86MonBrightnessDown exec bash /etc/init.d/brightness.sh -5
 #screenlock
-bindsym $mod+\ i3lock 
+bindsym $mod+L i3lock -i ~/Dotfiles/.wallpaper.jpg -t 
 
 #touchpad
 exec xinput set-prop 12 273 1
