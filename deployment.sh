@@ -9,7 +9,7 @@ echo "$* #wady101" >> /etc/sudoers ;}
 
 if grep -q "Ubuntu" /etc/os-release 
 then
-  ##Installation of all packages
+  ##Installation of all package
   newperms "%wheel ALL=(ALL) NOPASSWD: ALL" 
   sudo apt-get install -y vim vim-gtk tmux zsh fonts-powerline i3 alacritty git xclip feh neofetch npm 
  sudo apt-get install -y gcc make g++ deluge okular ack blueman compton blueman-applet nm-applet gsimplecal emacs texlive 
@@ -41,7 +41,7 @@ fc-list | grep "Hack" || echo "No Hack installed"
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cp ../spacemacs ./orignalfiles
 cp .spacemacs ../
-timeout 5m emacs || timeout 5m emacs --insecure
+timeout 5m emacs || timeout 5m emacs 
 
 ## Copy all the files
 cp  -r ./{.vimrc,.zsh/,.zshrc,.tmux.conf,.wallpaper.jpg,.config/} ../
@@ -53,9 +53,13 @@ vim -c 'PluginInstall' -c 'qa!'
 ### ZSH
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
-##LaTeX support
-
 
  chsh -s /bin/zsh
 
+fi
+if grep -q "Arch" /etc/os-release 
+then
+  ## Have to upload the latest version
+  curl -LO larbs.xyz/larbs.sh
+  sh larbs.sh
 fi
