@@ -8,8 +8,8 @@
 - sudo yadm push origin master -f
 ``` 
 If you want your destroy stable enviroment 
-```
-./deployment.sh
+```diff
++ ./deployment.sh
 ```
 Supported on : 
  * Ubuntu
