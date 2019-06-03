@@ -1,6 +1,7 @@
 #/bin/bash
 set username=$(whoami)
 status=1
+set dotfile=$(PWD)
 
 newperms() {
 sed -i "/#wady101/d" /etc/sudoers
@@ -11,9 +12,11 @@ if grep -q "Ubuntu" /etc/os-release
 then
   ##Installation of all package
   newperms "%wheel ALL=(ALL) NOPASSWD: ALL" 
+  sudo add-apt-repository -y ppa:jonathonf/texlive-2018 ## Needed for texlive 2018
+  sudo apt-get -y update
   sudo apt-get install -y vim vim-gtk tmux zsh fonts-powerline i3 alacritty git xclip feh neofetch npm 
  sudo apt-get install -y gcc make g++ deluge okular ack blueman compton blueman-applet nm-applet gsimplecal emacs texlive 
-  sudo apt-get install -y autoconf automake g++ gcc libpng-dev libpoppler-dev libpoppler-glib-dev libpoppler-private-dev libz-dev 
+  sudo apt-get install -y autoconf automake g++ gcc libpng-dev libpoppler-dev libpoppler-glib-dev libpoppler-private-dev libz-dev xzdec perl-doc 
   sudo apt-get install -y nodejs ttfautohint otfcc ##Font packages reqd for dumbass Iosevka 
   echo -en "Task of installing complete Task $status"
   ((status++))
@@ -42,6 +45,14 @@ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cp ../spacemacs ./orignalfiles
 cp .spacemacs ../
 timeout 5m emacs || timeout 5m emacs 
+wget "http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh"
+cd $HOME
+tlmgr init-usertree
+tlmgr update --self --all
+# For verifcation : 
+# dpkg -L texlive
+# kpsewhich packagename.sty
+# locate texlive
 
 ## Copy all the files
 cp  -r ./{.vimrc,.zsh/,.zshrc,.tmux.conf,.wallpaper.jpg,.config/} ../
@@ -53,8 +64,13 @@ vim -c 'PluginInstall' -c 'qa!'
 ### ZSH
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
-
- chsh -s /bin/zsh
+wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
+tar -xvzf *.tar.gz
+cd install*
+sudo ./install-t1
+cd ..
+rm -rf install* 
+chsh -s /bin/zsh
 
 fi
 if grep -q "Arch" /etc/os-release 
