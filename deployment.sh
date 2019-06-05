@@ -14,6 +14,8 @@ then
   newperms "%wheel ALL=(ALL) NOPASSWD: ALL" 
   sudo add-apt-repository -y ppa:jonathonf/texlive-2018 ## Needed for texlive 2018
   sudo apt-get -y update
+  ##Below line is for our boi - emacs build
+  sudo apt-get install -y build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev libxpm-dev automake autoconf
   sudo apt-get install -y vim vim-gtk tmux zsh fonts-powerline i3 alacritty git xclip feh neofetch npm 
  sudo apt-get install -y gcc make g++ deluge okular ack blueman compton blueman-applet nm-applet gsimplecal emacs texlive 
   sudo apt-get install -y autoconf automake g++ gcc libpng-dev libpoppler-dev libpoppler-glib-dev libpoppler-private-dev libz-dev xzdec perl-doc 
