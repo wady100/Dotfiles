@@ -108,3 +108,6 @@ source $ZSH/oh-my-zsh.sh
 alias tquit="tmux kill-session -a"
 alias tagen="ctags -R -f ./.tags ."
 source ${ZDOTDIR:-$HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+##Remove if not installed TeXLive
+export PATH=/usr/local/texlive/2019/bin/x86_64-linux:$PATH
