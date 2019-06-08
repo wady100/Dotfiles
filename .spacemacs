@@ -27,7 +27,7 @@ values."
    ;; If non-nil layers with lazy install support are lazy installed.
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/Dotfiles/.mylayers/")
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
@@ -37,8 +37,9 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ivy
-     ;; auto-completion
+     auto-completion
      ;; better-defaults
+     spacemacs-ui-visual
      pdf-tools
      latex
      emacs-lisp
@@ -49,7 +50,7 @@ values."
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      ;; spell-checking
-     ;; syntax-checking
+     syntax-checking
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
@@ -311,12 +312,25 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+  ;;encoding system 
+  (prefer-coding-system 'utf-8)
+  ;;Latec shite
+  (add-hook 'LaTeX-mode-hook
+            (lambda ()
+              (setq TeX-auto-untabify t     ; remove all tabs before saving
+                    TeX-engine 'xetex       ; use xelatex default
+                    TeX-show-compilation t  ; display compilation windows
+                    TeX-command-extra-options . "-shell-escape") ; add -shell-escape
+              (TeX-global-PDF-mode t)       ; PDF mode enable, not plain
+              (setq TeX-save-query nil)
+              (imenu-add-menubar-index)
+              (define-key LaTeX-mode-map (kbd "TAB") 'TeX-complete-symbol)))
+ (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
         TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
         TeX-source-correlate-start-server t
    )
   (setq LaTeX-command-style '(("" "%(PDF)%(latex) -shell-escape %S%(PDFout)")))
-
+  (setq neo-theme `classic)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -328,7 +342,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (pdf-tools tablist auctex which-key wgrep use-package smex pcre2el macrostep ivy-hydra hydra lv helm-make flx exec-path-from-shell evil-visualstar evil-escape evil goto-chg undo-tree elisp-slime-nav diminish counsel-projectile projectile pkg-info epl counsel swiper ivy bind-map bind-key auto-compile packed async ace-window avy))))
+    (spaceline s powerline popwin hl-todo golden-ratio fill-column-indicator fancy-battery fuzzy flycheck-pos-tip pos-tip flycheck dash company-statistics company-auctex company auto-yasnippet yasnippet ac-ispell auto-complete popup pdf-tools tablist auctex which-key wgrep use-package smex pcre2el macrostep ivy-hydra hydra lv helm-make flx exec-path-from-shell evil-visualstar evil-escape evil goto-chg undo-tree elisp-slime-nav diminish counsel-projectile projectile pkg-info epl counsel swiper ivy bind-map bind-key auto-compile packed async ace-window avy neotree))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
