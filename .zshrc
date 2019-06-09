@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # Aliase
 alias tquit="tmux kill-session -a"
 alias tagen="ctags -R -f ./.tags ."
+alias latclean="find .  \( -name "*.aux" -o -name "*.lof" -o -name "*.out" -o -name "*.xml" -o -name "*.gz" -o -name "*.toc" -o -path "./_*" -o -name "*.log" -o -name "*.bcf" -o -name "*.lot" \) -exec rm -rf {} +"
+
 source ${ZDOTDIR:-$HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ##Remove if not installed TeXLive
