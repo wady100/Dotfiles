@@ -330,6 +330,8 @@ you should place your code here."
         TeX-source-correlate-start-server t
    )
   (setq LaTeX-command-style '(("" "%(PDF)%(latex) -shell-escape %S%(PDFout)")))
+  ;; disable dumbass fontification of underscore in latex
+  (setq font-latex-fontify-script nil)
   (setq neo-theme `classic)
   )
 
