@@ -103,11 +103,19 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+# Functions
+
+function run { 
+    "$@" < /dev/null &> /dev/null &
+} ## 
+
+
 # Aliase
 alias tquit="tmux kill-session -a"
 alias tagen="ctags -R -f ./.tags ."
 alias latclean='find .  \( -name "*.aux" -o -name "*.lof" -o -name "*.out" -o -name "*.xml" -o -name "*.gz" -o -name "*.toc" -o -path "./_*" -o -name "*.log" -o -name "*.bcf" -o -name "*.lot" \) -exec rm -rf {} +'
+alias memoryhog="ps aux | sort -nk +4 | tail -n 20"
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
 source ${ZDOTDIR:-$HOME}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
