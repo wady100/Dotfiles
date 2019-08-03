@@ -72,6 +72,10 @@ cd install*
 sudo ./install-t1
 cd ..
 rm -rf install* 
+### OneNote support 
+sudo -u "$username" apt update
+sudo -u "$username" apt install snapd
+sudo -u "$username" snap install p3x-onenote
 chsh -s /bin/zsh
 
 fi
