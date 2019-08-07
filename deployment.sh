@@ -24,6 +24,18 @@ then
   ((status++))
   mkdir orignalfiles
 
+
+### Tmux 
+sudo apt-get install libevent1-dev 
+wget 'https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz'
+
+cd tmux-2.9a/
+./configure && make
+sudo make install 
+cd ..
+rm -rf tmux-2.9a/
+ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ ~/.tmux/plugins/tpm/bin/install_plugins
 ## Fonts 
 
 git clone https://github.com/powerline/fonts.git --depth=1
