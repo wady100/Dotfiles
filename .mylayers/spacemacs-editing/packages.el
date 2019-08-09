@@ -324,8 +324,7 @@
         :documentation "Global automatic whitespace clean up."
         :evil-leader "t C-S-w")
       (with-eval-after-load 'ws-butler
-        (when dotspacemacs-whitespace-cleanup
-          (spacemacs/toggle-global-whitespace-cleanup-on))))
+          (spacemacs/toggle-global-whitespace-cleanup-on)))
     :config
     (progn
       (spacemacs|diminish spacemacs-whitespace-cleanup-mode " Ⓦ" " W")
