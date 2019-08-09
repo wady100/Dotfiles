@@ -40,6 +40,7 @@ values."
      auto-completion
      ;; better-defaults
      spacemacs-ui-visual
+     spacemacs-editing
      pdf-tools
      latex
      emacs-lisp
