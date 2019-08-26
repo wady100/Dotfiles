@@ -7,7 +7,7 @@
 - sudo yadm commit -m ""
 - sudo yadm push origin master -f
 ``` 
-If you want your destroy stable enviroment 
+If you want to destroy your stable enviroment 
 ```diff
 + ./deployment.sh
 ```
