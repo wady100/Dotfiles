@@ -147,6 +147,8 @@ map <silent> <F9> :NERDTreeToggle<Enter>
 map <silent> <F8> :TagbarToggle<Enter>
 
 "Customized shortcuts
+nnoremap <silent> <leader>k :next<CR>
+nnoremap <silent> <leader>j :previous<CR>
 nnoremap <silent> <leader>q :q<cr>
 nnoremap <silent> <leader>w :w!<cr>
 nnoremap <silent> <leader>e :Gstatus<CR>
