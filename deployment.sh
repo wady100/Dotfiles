@@ -1,99 +1,119 @@
 #/bin/bash
 set username=$(whoami)
 status=1
-set dotfile=$(PWD)
+set dotfile=$PWD
+set -e 
+set -x 
+
+RED='\033[0;31m'
+NC='\033[0m' # No Color
 
 newperms() {
 sed -i "/#wady101/d" /etc/sudoers
 echo "$* #wady101" >> /etc/sudoers ;}
 
+tmux_install(){
+ sudo apt-get install libevent1-dev >> output.log 
+echo -en "${RED} TMUX ${NC} \n" 
+ wget 'https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz'
+tar -xvzf tmux-2.9a.tar.gz
+#chmod -R 777 tmux-2.9a
+ cd tmux-2.9a/
+ ./configure && make
+ sudo make install 
+ cd ..
+ rm -rf tmux-2.9a/
+rm tmux*.gz 
+ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ~/.tmux/plugins/tpm/bin/install_plugins; }
+
+fonts_install(){
+
+ git clone https://github.com/powerline/fonts.git --depth=1
+ cd fonts
+ ./install.sh
+ cd ..
+ rm -rf fonts
+ echo "Please add Font awesome on your own. No downloable avaliable :<"
+unzip unzip fontawesome-free-5.6.3-desktop.zip -d ~/.fonts
+ wget "https://github.com/be5invis/Iosevka/releases/download/v2.2.1/01-iosevka-2.2.1.zip" || echo "Iosevka download got screwed "
+ sudo unzip "*iosevka*"  -d /usr/share/fonts/iosevka
+
+ wget "https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip" || echo "Hack download got screwed"
+ sudo unzip "*Hack*"  -d /usr/share/fonts/Hack
+ fc-cache -f -v
+ fc-list | grep "Iosevka" | echo "${RED} Iosevka installed ${NC} " || echo "${RED} No Iosevka installed ${NC}"
+ fc-list | grep "Hack"  | echo "${RED} Hack installed ${NC} " || echo "${RED} No Hack installed ${NC}"
+ rm -f 01*.zip
+ rm -f Hack*.zip;} 
+
+emacs_install(){
+ rm -rf ~/.emacs.d
+ git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+ cp ../.spacemacs ./orignalfiles
+ cp .spacemacs ../
+ timeout 5m emacs || echo "Run emacs seperately\n";} 
 
 if grep -q "Ubuntu" /etc/os-release 
 then
   ##Installation of all package
-  newperms "%wheel ALL=(ALL) NOPASSWD: ALL" 
-  sudo add-apt-repository -y ppa:jonathonf/texlive-2018 ## Needed for texlive 2018
-  sudo apt-get -y update
+ #  newperms "%wheel ALL=(ALL) NOPASSWD: ALL" 
+ # sudo add-apt-repository -y ppa:jonathonf/texlive-2018 ## Needed for texlive 2018
+ # sudo add-apt-repository ppa:dawidd0811/neofetch-daily
+ #  sudo apt-get -y update
   ##Below line is for our boi - emacs build
-  sudo apt-get install -y build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev libxpm-dev automake autoconf
-  sudo apt-get install -y vim vim-gtk tmux zsh fonts-powerline i3 alacritty git xclip feh neofetch npm 
- sudo apt-get install -y gcc make g++ deluge okular ack blueman compton blueman-applet nm-applet gsimplecal emacs texlive 
-  sudo apt-get install -y autoconf automake g++ gcc libpng-dev libpoppler-dev libpoppler-glib-dev libpoppler-private-dev libz-dev xzdec perl-doc 
-  sudo apt-get install -y nodejs ttfautohint otfcc ##Font packages reqd for dumbass Iosevka 
-  echo -en "Task of installing complete Task $status"
-  ((status++))
-  mkdir orignalfiles
+touch output.log 
+printf "Begin output to logfile ${RED}output.log${NC}\n"
+
+#  cat packages.list | xargs sudo apt-get -y install >> output.log 
+   ##Font packages reqd for dumbass Iosevka 
+  echo -en "Task of ${RED}installing complete${NC} Task $status"
+#   mkdir orignalfiles
 
 
 ### Tmux 
-sudo apt-get install libevent1-dev 
-wget 'https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz'
-
-cd tmux-2.9a/
-./configure && make
-sudo make install 
-cd ..
-rm -rf tmux-2.9a/
- git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
- ~/.tmux/plugins/tpm/bin/install_plugins
+#tmux_install 
 ## Fonts 
-
-git clone https://github.com/powerline/fonts.git --depth=1
-cd fonts
-./install.sh
-cd ..
-rm -rf fonts
-echo "Please add Font awesome on your own. No downloable avaliable :<"
-#unzip unzip fontawesome-free-5.6.3-desktop.zip -d ~/.fonts
-wget "https://github.com/be5invis/Iosevka/releases/download/v2.2.1/01-iosevka-2.2.1.zip" || echo "Iosevka download got screwed "
-sudo -u "$username" unzip "*iosevka*"  -d /usr/share/fonts/iosevka
-
-wget "https://github.com/source-foundry/Hack/releases/download/v3.003/Hack-v3.003-ttf.zip" || echo "Hack download got screwed"
-sudo -u "$username" unzip "*Hack*"  -d /usr/share/fonts/Hack
-fc-cache -f -v
-fc-list | grep "Iosevka" || echo "No Iosevka installed"
-fc-list | grep "Hack" || echo "No Hack installed"
-
+#fonts_install
 ## Emacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-cp ../spacemacs ./orignalfiles
-cp .spacemacs ../
-timeout 5m emacs || timeout 5m emacs 
-wget "http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh"
-cd $HOME
-tlmgr init-usertree
-tlmgr update --self --all
+#emacs_install
+# wget "http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh"
+# cd $HOME
+# tlmgr init-usertree
+# tlmgr update --self --all
 # For verifcation : 
 # dpkg -L texlive
 # kpsewhich packagename.sty
 # locate texlive
 
 ## Copy all the files
-cp  -r ./{.vimrc,.zsh/,.zshrc,.tmux.conf,.wallpaper.jpg,.config/} ../
+cp  -rt  ../ .vimrc .zsh/ .zshrc .tmux.conf .config/ .wallpaper.jpg
 
 ### Vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+rm -rf ~/.vim/bundle/Vundle.vim | echo "Vundle has been copied anew" >> output.log
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
 vim -c 'PluginInstall' -c 'qa!'
 
 ### ZSH
+cd $HOME
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
-wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
-tar -xvzf *.tar.gz
-cd install*
-sudo ./install-t1
-cd ..
-rm -rf install* 
+#wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
+#tar -xvzf *.tar.gz
+#cd install*
+#sudo ./install-t1
+#cd ..
+#rm -rf install* 
 ### OneNote support 
-sudo -u "$username" apt update
-sudo -u "$username" apt install snapd
-sudo -u "$username" snap install p3x-onenote
-chsh -s /bin/zsh
+#sudo -u "$username" apt update
+#sudo -u "$username" apt install snapd
+#sudo -u "$username" snap install p3x-onenote
+#chsh -s /bin/zsh
 
 fi
 if grep -q "Arch" /etc/os-release 
 then
-  ## Have to upload the latest version
+ ## Have to upload the latest version
   curl -LO larbs.xyz/larbs.sh
   sh larbs.sh
 fi
