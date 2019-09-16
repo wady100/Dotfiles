@@ -107,8 +107,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 ### OneNote support 
 #sudo -u "$username" apt update
 #sudo -u "$username" apt install snapd
-#sudo -u "$username" snap install p3x-onenote
-#chsh -s /bin/zsh
+sudo snap install p3x-onenote
+chsh -s /bin/zsh
 
 fi
 if grep -q "Arch" /etc/os-release 
