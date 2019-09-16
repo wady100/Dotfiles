@@ -72,11 +72,11 @@ printf "Begin output to logfile ${RED}output.log${NC}\n"
 
 
 ### Tmux 
-#tmux_install 
+tmux_install 
 ## Fonts 
-#fonts_install
+fonts_install
 ## Emacs
-#emacs_install
+emacs_install
 # wget "http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh"
 # cd $HOME
 # tlmgr init-usertree
