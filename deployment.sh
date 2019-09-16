@@ -86,6 +86,12 @@ emacs_install
 # kpsewhich packagename.sty
 # locate texlive
 
+#wget -c 'https://github.com/jwilm/alacritty/releases/download/v0.3.3/Alacritty-v0.3.3-ubuntu_18_04_amd64.deb' 
+#dpkg -i Alacritty-v0.3.3-ubuntu_18_04_amd64.deb
+## Old version of the terminal. New one (above) need latest stuff. Keep in mind
+wget -c 'https://github.com/jwilm/alacritty/releases/download/binaries/Alacritty_amd64.deb'
+dpkg -i Alacritty_amd64.deb 
+
 ## Copy all the files
 cp  -rt  ../ .vimrc .zsh/ .zshrc .tmux.conf .config/ .wallpaper.jpg
 
