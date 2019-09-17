@@ -102,6 +102,7 @@ vim -c 'PluginInstall' -c 'qa!'
 
 ### ZSH
 cd $HOME
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 #wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
@@ -114,7 +115,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 #sudo -u "$username" apt update
 #sudo -u "$username" apt install snapd
 sudo snap install p3x-onenote
-chsh -s /bin/zsh
+#chsh -s /bin/zsh
 
 fi
 if grep -q "Arch" /etc/os-release 
