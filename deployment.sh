@@ -48,6 +48,13 @@ unzip unzip fontawesome-free-5.6.3-desktop.zip -d ~/.fonts
  rm -f Hack*.zip;} 
 
 emacs_install(){
+ wget http://ftp.snt.utwente.nl/pub/software/gnu/emacs/emacs-25.3.tar.xz 
+ tar -xvJf emacs-25.3.tar.xz 
+ cd emacs-25.3
+ ./configure
+ sudo make install 
+ cd .. ; rm -rf emacs-25.3; rm *.xz
+ echo "${RED}Done installing EMACS ${NC}" 
  rm -rf ~/.emacs.d
  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
  cp ../.spacemacs ./orignalfiles
