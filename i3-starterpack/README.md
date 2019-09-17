@@ -1,79 +1,4 @@
 ## Introduction
-A simple guide (and example of configuration) to install i3 and its and essentials packages and make them look eye candy, 
-or at least make them not ugly :grin:
-
-Example configuration in this repo is pretty simple, minimal, and easy to be understood, without reducing the usability.
-Only contains about 140 lines of i3 configuration, pretty stock without any custom script, custom packages, and custom patch.
-This is my daily i3 configuration by the way. 
-And this configuration only use packages that available on most Distros main repository.
-So You don't need AUR, PPA, xbps-src, or sudo make install. 
-
-I'm using Debian, with i3 stock metapackages (i3wm, i3bar, i3status, i3lock, i3-sensible-terminal, and i3-dmenu-desktop), so does this guide.
-Hence I name this repo *i3-starterpack*.
-So, the installation guide here will use Debian command & package name. <br />
-
-## Preview
-![clean](https://raw.githubusercontent.com/addy-dclxvi/i3-starterpack/master/preview-clean.jpg) <br />
-**Clean**, without any opened app. Only i3bar is visible. <br />
-
-![rofi](https://raw.githubusercontent.com/addy-dclxvi/i3-starterpack/master/preview-rofi.jpg) <br />
-**Rofi**, my favourite dmenu alternative for launching apps. <br />
-
-![fullscreen](https://raw.githubusercontent.com/addy-dclxvi/i3-starterpack/master/preview-fullscreen.jpg) <br />
-**Fullscreen**, when I write this guide using Vim inside URxvt. Vanilla i3, so has no gaps. <br />
-
-![splitscreen](https://raw.githubusercontent.com/addy-dclxvi/i3-starterpack/master/preview-splitscreen.jpg) <br />
-**Splitscreen**, I open ncmpcpp music player on the right. <br />
-
-![floating](https://raw.githubusercontent.com/addy-dclxvi/i3-starterpack/master/preview-floating.jpg) <br />
-**Floating**, for show-off. <br />
-
-## Disclaimer
-I'm not a Pro. I just started learning Linux one year ago. And I'm not an IT guy. So, probably this guide will have some mistakes. 
-I hope You would correct me instead of insult me :cry: <br />
-
-## Reason
-I've got frequently questioned, "How to make my desktop looks like yours?". 
-I don't know why they ask it to me, my desktop doesn't even look nice. 
-So, I only answer "What DE do You use? Have You tried window manager? You can use Google to find some guide". <br />
-
-And the frequent reply..
-- "I have been following the guide I found, but my desktop still doesn't like yours". <br />
-
-Different level of reply..
-- "I don't know what is my DE. It's default on my Parrot Security."
-- "DE? What is DE? Btw, I use Kali Linux. Have You watched Mr.Robot?" <br />
-
-And my other reason writing this guide is, most of i3 guides I found on internet are just to install i3 and make it usable only. 
-Not how to de-uglify it :stuck_out_tongue: <br />
-
-## Why i3?
-i3 is (arguably) the most easiest tiling window manager to learn and configure. 
-And i3 has a really good documentation, including example command and troubleshooting.
-The community is also quite large. You will easily get more customization examples.
-So, I really recommend You to start from i3 if You want learn Linux customization.
-After You can handle i3, You can try more advanced window managers. 
-i3 is my first tiling window manager by the way :relaxed: <br />
-
-## Why Not i3-gaps?
-As I previously said, I prefer to use packages those are available on main repository.
-As far as I know i3-gaps package is only available on Arch, Void, Solus, and Alpine repository.
-And do You know? Airblader the i3-gaps developer himself doesn't use gaps!
-My whole life is a lie :confounded: <br />
-
-## Requirements
-- At least a working Desktop Environtment or Window Manager (I'm sure You already have it).
-Why? Just to make sure already have some essential packages like Xorg, Display Manager, Sound Mixer, Network Manager, etc.
-- My recommendation is start from Xfce. It's quite minimal for a Desktop Environtment. And We can use some of its useful components later.
-Like file manager, text editor, power manager, clipman, task manager, or maybe its settings daemon.
-- Willing to learn, patience, and ability to use Google for fixing problems.
-- Not give up easily. 100 times error, 100 times revert, 100 times retry every single day until three years in a row can break your limiter :laughing:
-- Some great musics for companion. 
-I recommend You to listen [Scenes from a Memory](https://www.youtube.com/playlist?list=PL0tX8IvlqTFtpB-H5g_xDK2SXuDkixjva) album by Dream Theater.
-- :coffee: <br />
-
-## Installation
-- **First, install i3 of course** <br />
 `sudo apt-get install i3` <br />
 It will give You i3-wm, dunst, i3lock, i3status, and suckless-tools.
 If i3-wm, dunst, i3lock, i3status, and suckless-tools are not installed automatically, just install them manually. <br />
@@ -323,6 +248,3 @@ If the red border is on the right, that means if You launch a new window on that
 You can change the splitting direction to bottom using **Super + V**. If You want to split to right again, hit **Super + H**.
 If You unsatisfied with it, just modify it :wink: <br />
 
-## That's For Now
-I think, this is quite enough for a starter. You can improve it by yourself. <br />
-Thanks for reading! :blush:
