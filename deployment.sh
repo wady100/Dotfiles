@@ -1,5 +1,5 @@
 #/bin/bash
-set username=$(whoami)
+
 status=1
 set dotfile=$PWD
 set -e 
@@ -59,6 +59,8 @@ emacs_install(){
  git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
  cp ../.spacemacs ./orignalfiles
  cp .spacemacs ../
+ sudo chown $USERNAME -R ~/.emacs.d ~/.local
+ sudo chown $USERNAME .spacemacs
  timeout 5m emacs || echo "Run emacs seperately\n";} 
 
 if grep -q "Ubuntu" /etc/os-release 
