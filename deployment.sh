@@ -80,7 +80,6 @@ rm script;
 
 printf -- "\n----------------------------------------------------------------------------------------------------";
 printf "\n Lock Script installed! Removing unused packages.\n";
-printf -- "----------------------------------------------------------------------------------------------------\n";
 echo "$install_candidate - $vendor; $version; $(date); $(date +%s)" | sudo tee --append /etc/installer-scripts.log > /dev/null;
 echo "${RED}Done installing Lockscreen settings ${NC}" 
 }
