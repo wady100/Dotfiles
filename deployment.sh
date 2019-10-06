@@ -63,6 +63,27 @@ emacs_install(){
  sudo chown $USERNAME .spacemacs
  timeout 5m emacs || echo "Run emacs seperately\n";} 
 
+lock_install(){
+# Fetch version of script
+version=$(git ls-remote --tags https://github.com/pavanjadhaw/betterlockscreen | tail -1 | grep -o "v.*$");
+git clone https://github.com/PandorasFox/i3lock-color && cd i3lock-color;
+autoreconf -i; ./configure;
+make; sudo checkinstall --pkgname=i3lock-color --pkgversion=1 -y;
+cd .. && sudo rm -r i3lock-color;
+f [[ -f /usr/bin/betterlockscreen ]]; then
+    sudo rm /usr/bin/betterlockscreen;
+fi
+curl -o script https://raw.githubusercontent.com/pavanjadhaw/betterlockscreen/master/betterlockscreen;
+sudo cp script /usr/bin/betterlockscreen;
+sudo chmod +x /usr/bin/betterlockscreen;
+rm script;
+
+printf -- "\n----------------------------------------------------------------------------------------------------";
+printf "\n Lock Script installed! Removing unused packages.\n";
+printf -- "----------------------------------------------------------------------------------------------------\n";
+echo "$install_candidate - $vendor; $version; $(date); $(date +%s)" | sudo tee --append /etc/installer-scripts.log > /dev/null;
+echo "${RED}Done installing Lockscreen settings ${NC}" 
+}
 if grep -q "Ubuntu" /etc/os-release 
 then
   ##Installation of all package
@@ -113,6 +134,9 @@ vim -c 'PluginInstall' -c 'qa!'
 cd $HOME
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+#lock
+lock_install 
 
 #wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 #tar -xvzf *.tar.gz
