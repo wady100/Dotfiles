@@ -79,8 +79,7 @@ sudo chmod +x /usr/bin/betterlockscreen;
 rm script;
 
 printf -- "\n----------------------------------------------------------------------------------------------------";
-printf "\n Lock Script installed! Removing unused packages.\n";
-echo "$install_candidate - $vendor; $version; $(date); $(date +%s)" | sudo tee --append /etc/installer-scripts.log > /dev/null;
+printf "\n Lock Script installed!\n";
 echo "${RED}Done installing Lockscreen settings ${NC}" 
 }
 if grep -q "Ubuntu" /etc/os-release 
@@ -136,6 +135,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 #lock
 lock_install 
+
+## Change background filename accordingly
+betterlockscreen -u ~/.background.png -b 0.25
 
 #wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 #tar -xvzf *.tar.gz
