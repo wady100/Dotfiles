@@ -90,21 +90,15 @@ then
  # sudo add-apt-repository ppa:dawidd0811/neofetch-daily
  #  sudo apt-get -y update
   ##Below line is for our boi - emacs build
-touch output.log 
-printf "Begin output to logfile ${RED}output.log${NC}\n"
-
+#touch output.log 
+#printf "Begin output to logfile ${RED}output.log${NC}\n"
 #  cat packages.list | xargs sudo apt-get -y install >> output.log 
    ##Font packages reqd for dumbass Iosevka 
-  echo -en "Task of ${RED}installing complete${NC} Task $status"
+#  echo -en "Task of ${RED}installing complete${NC} Task $status"
 #   mkdir orignalfiles
-
-
-### Tmux 
-tmux_install 
-## Fonts 
-fonts_install
-## Emacs
-emacs_install
+#tmux_install 
+#fonts_install
+#emacs_install
 # wget "http://mirror.ctan.org/systems/texlive/tlnet/update-tlmgr-latest.sh"
 # cd $HOME
 # tlmgr init-usertree
@@ -113,32 +107,23 @@ emacs_install
 # dpkg -L texlive
 # kpsewhich packagename.sty
 # locate texlive
-
 #wget -c 'https://github.com/jwilm/alacritty/releases/download/v0.3.3/Alacritty-v0.3.3-ubuntu_18_04_amd64.deb' 
 #dpkg -i Alacritty-v0.3.3-ubuntu_18_04_amd64.deb
 ## Old version of the terminal. New one (above) need latest stuff. Keep in mind
-wget -c 'https://github.com/jwilm/alacritty/releases/download/binaries/Alacritty_amd64.deb'
-dpkg -i Alacritty_amd64.deb 
-
+#wget -c 'https://github.com/jwilm/alacritty/releases/download/binaries/Alacritty_amd64.deb'
+#dpkg -i Alacritty_amd64.deb 
 ## Copy all the files
-cp  -rt  ../ .vimrc .zsh/ .zshrc .tmux.conf .config/ .wallpaper.jpg
-
-### Vim
-rm -rf ~/.vim/bundle/Vundle.vim | echo "Vundle has been copied anew" >> output.log
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
-vim -c 'PluginInstall' -c 'qa!'
-
-### ZSH
-cd $HOME
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-
+#cp  -rt  ../ .vimrc .zsh/ .zshrc .tmux.conf .config/ .wallpaper.jpg
+#rm -rf ~/.vim/bundle/Vundle.vim | echo "Vundle has been copied anew" >> output.log
+#git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
+#vim -c 'PluginInstall' -c 'qa!'
+#cd $HOME
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 #lock
-lock_install 
-
+#lock_install 
 ## Change background filename accordingly
-betterlockscreen -u ~/.background.png -b 0.25
-
+#betterlockscreen -u ~/.background.png -b 0.25
 #wget "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
 #tar -xvzf *.tar.gz
 #cd install*
@@ -148,13 +133,12 @@ betterlockscreen -u ~/.background.png -b 0.25
 ### OneNote support 
 #sudo -u "$username" apt update
 #sudo -u "$username" apt install snapd
-sudo snap install p3x-onenote
+#sudo snap install p3x-onenote
 #chsh -s /bin/zsh
-
-fi
-if grep -q "Arch" /etc/os-release 
-then
- ## Have to upload the latest version
-  curl -LO larbs.xyz/larbs.sh
-  sh larbs.sh
-fi
+#fi
+#if grep -q "Arch" /etc/os-release 
+#then
+# ## Have to upload the latest version
+ ## curl -LO larbs.xyz/larbs.sh
+  #sh larbs.sh
+#fi
